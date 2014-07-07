@@ -10,21 +10,26 @@ window.LGI.Carusel = React.createClass({
     render: function() {
         console.log(this.props.caseSensitivePropertyName);
 
-        var rows = [];
+        var renderItem = function (item) {
+            return <li key={item.text}>{item.text}</li>;
+        };
 
         if (this.props.items === undefined) {
             return <div></div>;
         }
 
-        this.props.items.forEach(function(item) {
-            rows.push(<li key={item.text}>{item.text}</li>);
-        });
-
-        return <div>&lt;my-reactive-element&gt;<ul style={this.state}>{rows}</ul>&lt;/my-reactive-element&gt;</div>;
+        return (<div>
+            &lt;my-reactive-element&gt;
+            <ul style={this.state}>
+                {this.props.items.map(renderItem)}
+            </ul>
+            &lt;/my-reactive-element&gt;
+        </div>);
     },
     changeColor: function(color) {
-        this.state.color = color;
-        this.forceUpdate();
+        this.setState({
+            color: color
+        });
     }
 });
 
