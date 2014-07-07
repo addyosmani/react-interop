@@ -1,4 +1,4 @@
 react-interop
 =============
 
-ReactiveElements + Polymer + XTags interop
+ReactiveElements + Polymer + X-Tag interop

@@ -1,0 +1,32 @@
+{
+  "name": "x-tag-imports",
+  "homepage": "https://github.com/x-tag/x-tag-imports",
+  "license": "MIT",
+  "dependencies": {
+    "platform": "Polymer/platform#~0.2.0",
+    "x-tag-core": "~0.9.3",
+    "x-tag-iconbutton": "~0.1.2",
+    "x-tag-tabbar": "~0.1.8",
+    "x-tag-switch": "~0.2.2",
+    "x-tag-deck": "~0.2.4",
+    "x-tag-transitions": "~0.1.3",
+    "x-tag-flipbox": "~0.2.8"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "ab81ee4854",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ab81ee485442cec799edb1aa9abace5cc840e245"
+  },
+  "_source": "git://github.com/x-tag/x-tag-imports.git",
+  "_target": "*",
+  "_originalSource": "x-tag/x-tag-imports",
+  "_direct": true
+}

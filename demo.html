@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- web components -->
+    <script src="components/platform/platform.js"></script>
+    <!-- react -->
+    <script src="components/react/react.js"></script>
+    <!-- reactiveelements -->
+    <script src="components/ReactiveElements/src/reactive-elements.js"></script>
+    <!-- import an element written without a library-->
+    <link rel="import" href="icon-button.html">
+    <!-- import an element written using X-Tag -->
+    <link rel="import" href="components/x-tag-imports/x-tag-switch.html">
+    <!-- import an element written using Polymer -->
+    <link rel="import" href="components/polymer-ui-ratings/polymer-ui-ratings.html">
+    <!-- include an element written using React(ive) -->
+    <script src="components/ReactiveElements/example/dist/my-reactive-element.js"></script>
+  </head>
+  <body>
+    <h2>Vanilla Custom Element</h2>
+    <icon-button></icon-button>
+
+    <hr>
+
+    <h2>X-Tag Element</h2>
+    <x-switch onText="Good" offText="Bad"></x-switch>
+
+    <hr>
+
+    <h2>Polymer Element</h2>
+    <polymer-ui-ratings value="0"></polymer-ui-ratings>
+
+
+    <h2>React(ive) Element</h2>
+
+
+    <script>
+
+        window.browsers = [
+            {'text': 'Chrome'},
+            {'text': 'Firefox'},
+            {'text': 'Safari'},
+            {'text': 'Opera'},
+            {'text': 'IE'}
+        ];
+
+        window.justNames = [
+            {'text': 'Addy'},
+            {'text': 'Eric'},
+            {'text': 'Rob'}
+        ];
+
+        window.justBirds = [
+            {'text': 'Raven'},
+            {'text': 'Dove'},
+            {'text': 'Colibri'}
+        ];
+
+      document.addEventListener('polymer-ready', function(e) {
+        var btn = document.querySelector('icon-button');
+        var xswitch = document.querySelector('x-switch');
+        var ratings = document.querySelector('polymer-ui-ratings');
+        var reactCarousel =  document.getElementById('carousel');
+        var currentColor = 'black';
+
+        btn.addEventListener('click', function(e) {
+          xswitch.toggle();
+          ratings.value = ratings.value === 0 ? 5 : 0;
+
+          // React
+          callToReactComponentMethod();
+          changePropertiesDirectly();
+        });
+
+        // Execute React component method
+        function callToReactComponentMethod() {
+          // Stupid simple toggle
+          if(currentColor === 'black'){
+            carousel.changeColor('red');
+            currentColor = 'red';
+          }else{
+            carousel.changeColor('black');
+            currentColor = 'black';
+          }
+        }
+
+        // Change component attributes
+        function changeAttribute() {
+          carousel.setAttribute('items', '{window.justBirds}');
+        }
+
+        // Change component properties directly and force update
+        function changePropertiesDirectly() {
+          var carousel = document.getElementById('carousel');
+          carousel.props.items = window.justNames;
+          carousel.forceUpdate();
+        }
+
+        function addReactiveElement() {
+          var carousel = document.createElement('my-reactive-element');
+          carousel.className = 'right_top_widget';
+          carousel.props.items = window.browsers;
+
+          var wrapper = document.getElementById('wrapper')
+          wrapper.appendChild(carousel);
+          carousel.forceUpdate();
+        } 
+
+      });
+    </script>
+
+    <my-reactive-element id="carousel" class="left_top_widget" case-sensitive-property-name="Some value from camel case named variable" items="{window.browsers}"></my-reactive-element>
+
+  </body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "ReactiveElements",
+  "version": "0.3.1",
+  "homepage": "https://github.com/PixelsCommander/ReactiveElements",
+  "authors": [
+    "PixelsCommander <denis.radin@gmail.com>"
+  ],
+  "description": "Use React.js components as HTML custom elements",
+  "main": "./dist/reactive-elements.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "react",
+    "web-components",
+    "custom",
+    "elements"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.3.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.3.1",
+    "commit": "762e723c6b9b91f75feb33610bc4b5a97e59b070"
+  },
+  "_source": "git://github.com/PixelsCommander/ReactiveElements.git",
+  "_target": "~0.3.1",
+  "_originalSource": "ReactiveElements",
+  "_direct": true
+}
