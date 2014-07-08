@@ -45,16 +45,11 @@
             {'text': 'IE'}
         ];
 
-        window.justNames = [
-            {'text': 'Addy'},
-            {'text': 'Eric'},
-            {'text': 'Rob'}
-        ];
-
-        window.justBirds = [
-            {'text': 'Raven'},
-            {'text': 'Dove'},
-            {'text': 'Colibri'}
+        window.movies = [
+            {'text': 'Avengers'},
+            {'text': 'Captain America'},
+            {'text': 'Iron Man'},
+            {'text': 'Batman'}
         ];
 
       document.addEventListener('polymer-ready', function(e) {
@@ -70,7 +65,7 @@
 
           // React
           callToReactComponentMethod();
-          changePropertiesDirectly();
+          changeAttribute();
         });
 
         // Execute React component method
@@ -87,25 +82,8 @@
 
         // Change component attributes
         function changeAttribute() {
-          carousel.setAttribute('items', '{window.justBirds}');
+          carousel.setAttribute('items', '{window.movies}');
         }
-
-        // Change component properties directly and force update
-        function changePropertiesDirectly() {
-          var carousel = document.getElementById('carousel');
-          carousel.props.items = window.justNames;
-          carousel.forceUpdate();
-        }
-
-        function addReactiveElement() {
-          var carousel = document.createElement('my-reactive-element');
-          carousel.className = 'right_top_widget';
-          carousel.props.items = window.browsers;
-
-          var wrapper = document.getElementById('wrapper')
-          wrapper.appendChild(carousel);
-          carousel.forceUpdate();
-        } 
 
       });
     </script>
