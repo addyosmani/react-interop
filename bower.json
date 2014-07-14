@@ -1,25 +1,14 @@
 {
-  "name": "react-interop",
-  "version": "0.0.0",
-  "homepage": "https://github.com/addyosmani/react-interop",
-  "authors": [
-    "Addy Osmani <addyosmani@gmail.com>"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "polymer": "Polymer/polymer#~0.3.3",
-    "polymer-ui-ratings": "Polymer/polymer-ui-ratings#~0.3.0",
-    "x-tag-imports": "x-tag/x-tag-imports",
-    "ReactiveElements": "~0.3.1",
-    "react": "~0.10.0"
-  },
-  "resolutions": {
-    "platform": ">=0.3.0 <1.0.0"
-  }
+    "private": true,
+    "name": "react-interop",
+    "dependencies": {
+        "polymer": "Polymer/polymer#~0.3.3",
+        "polymer-ui-ratings": "Polymer/polymer-ui-ratings#~0.3.0",
+        "x-tag-imports": "x-tag/x-tag-imports",
+        "ReactiveElements": "~0.3.1",
+        "react": "~0.10.0"
+    },
+    "resolutions": {
+        "platform": ">=0.3.0 <1.0.0"
+    }
 }

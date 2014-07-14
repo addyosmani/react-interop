@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>React + Polymer + X-Tag</title>
     <!-- web components -->
     <script src="components/platform/platform.js"></script>
     <!-- react -->
@@ -16,8 +17,8 @@
     <link rel="import" href="components/polymer-ui-ratings/polymer-ui-ratings.html">
     <!-- include an element written using React(ive) -->
     <script src="components/ReactiveElements/example/dist/my-reactive-element.js"></script>
-  </head>
-  <body>
+</head>
+<body>
     <h2>Vanilla Custom Element</h2>
     <icon-button></icon-button>
 
@@ -31,12 +32,10 @@
     <h2>Polymer Element</h2>
     <polymer-ui-ratings value="0"></polymer-ui-ratings>
 
+    <hr>
 
     <h2>React(ive) Element</h2>
-
-
     <script>
-
         window.browsers = [
             {'text': 'Chrome'},
             {'text': 'Firefox'},
@@ -52,43 +51,42 @@
             {'text': 'Batman'}
         ];
 
-      document.addEventListener('polymer-ready', function(e) {
-        var btn = document.querySelector('icon-button');
-        var xswitch = document.querySelector('x-switch');
-        var ratings = document.querySelector('polymer-ui-ratings');
-        var reactCarousel =  document.getElementById('carousel');
-        var currentColor = 'black';
+        document.addEventListener('polymer-ready', function(e) {
+            var btn = document.querySelector('icon-button');
+            var xswitch = document.querySelector('x-switch');
+            var ratings = document.querySelector('polymer-ui-ratings');
+            var reactCarousel =  document.getElementById('carousel');
+            var currentColor = 'black';
 
-        btn.addEventListener('click', function(e) {
-          xswitch.toggle();
-          ratings.value = ratings.value === 0 ? 5 : 0;
+            btn.addEventListener('click', function(e) {
+                xswitch.toggle();
+                ratings.value = ratings.value === 0 ? 5 : 0;
 
-          // React
-          callToReactComponentMethod();
-          changeAttribute();
+                // React
+                callToReactComponentMethod();
+                changeAttribute();
+            });
+
+            // Execute React component method
+            function callToReactComponentMethod() {
+                // Stupid simple toggle
+                if (currentColor === 'black') {
+                    carousel.changeColor('red');
+                    currentColor = 'red';
+                } else {
+                    carousel.changeColor('black');
+                    currentColor = 'black';
+                }
+            }
+
+            // Change component attributes
+            function changeAttribute() {
+                carousel.setAttribute('items', '{window.movies}');
+            }
         });
-
-        // Execute React component method
-        function callToReactComponentMethod() {
-          // Stupid simple toggle
-          if(currentColor === 'black'){
-            carousel.changeColor('red');
-            currentColor = 'red';
-          }else{
-            carousel.changeColor('black');
-            currentColor = 'black';
-          }
-        }
-
-        // Change component attributes
-        function changeAttribute() {
-          carousel.setAttribute('items', '{window.movies}');
-        }
-
-      });
     </script>
 
     <my-reactive-element id="carousel" class="left_top_widget" case-sensitive-property-name="Some value from camel case named variable" items="{window.browsers}"></my-reactive-element>
 
-  </body>
+</body>
 </html>
