@@ -71,17 +71,17 @@
             function callToReactComponentMethod() {
                 // Stupid simple toggle
                 if (currentColor === 'black') {
-                    carousel.changeColor('red');
+                    reactCarousel.changeColor('red');
                     currentColor = 'red';
                 } else {
-                    carousel.changeColor('black');
+                    reactCarousel.changeColor('black');
                     currentColor = 'black';
                 }
             }
 
             // Change component attributes
             function changeAttribute() {
-                carousel.setAttribute('items', '{window.movies}');
+                reactCarousel.setAttribute('items', '{window.movies}');
             }
         });
     </script>
