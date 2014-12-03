@@ -42,11 +42,11 @@
       loop: {
         attribute: { boolean: true }
       },
-    cards: {
-    get: function(){
-      return xtag.queryChildren(this, 'x-card');
-    }
-    },
+      cards: {
+        get: function(){
+          return xtag.queryChildren(this, 'x-card');
+        }
+      },
       selectedCard: {
         get: function(){
           return this.xtag.selected || null;
@@ -58,24 +58,22 @@
       selectedIndex: {
         attribute: {
           name: 'selected-index',
-          unlink: true
+          validate: function(value){
+            return value | '0';
+          }
         },
         get: function(){
-            return this.hasAttribute('selected-index') ? Number(this.getAttribute('selected-index')) : -1;
+            return this.hasAttribute('selected-index') ? this.getAttribute('selected-index') | 0 : -1;
         },
         set: function(value){
-          var index = Number(value),
-              card = this.cards[index];
+          var card = this.cards[value];
           if (card) {
-            this.setAttribute('selected-index', index);
             if (card != this.xtag.selected) {
               this.showCard(card);
             }
-          } else {
-            this.removeAttribute('selected-index');
-            if (this.xtag.selected) {
-              this.hideCard(this.xtag.selected);
-            }
+          }
+          else if (this.xtag.selected) {
+            this.hideCard(this.xtag.selected);
           }
         }
       },
@@ -109,9 +107,9 @@
               card.setAttribute('show', '');
               card.setAttribute('transition-direction', direction);
             },
-      after: function(){
-        xtag.fireEvent(card, 'show');
-      }
+            after: function(){
+              xtag.fireEvent(card, 'show');
+            }
           });
         }
       },
