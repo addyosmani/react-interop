@@ -4,7 +4,7 @@
   "homepage": "https://github.com/x-tag/x-tag-imports",
   "license": "MIT",
   "dependencies": {
-    "platform": "Polymer/platform#~0.2.0",
+    "platform": "Polymer/platform#>=0.4.0 <1.0.0",
     "x-tag-core": "~0.9.3",
     "x-tag-iconbutton": "~0.1.2",
     "x-tag-tabbar": "~0.1.8",
